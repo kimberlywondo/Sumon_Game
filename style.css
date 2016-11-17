@@ -1,0 +1,85 @@
+header{
+    
+}
+
+h1{
+
+}
+
+p{
+
+}
+
+.container{
+    width: 800px;
+    background: black;
+    margin: 5px;
+    padding: 15px;
+    display: flex;
+}
+
+.board{
+    display: flex;
+    min-height: 480px;
+    width: 480px;
+    flex-flow: wrap;
+    background: gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.tile {
+    background: white;
+    display: inline-block;
+    flex: 1 1 auto;
+    height: 60px;
+    width: 60px;
+    margin: 5px;
+    padding: 10px 5px 1px 5px;
+:hover{
+        background: yellow; 
+    }
+}
+
+aside {
+    background: gray;
+    width: 110px;
+    padding: 15px; 
+    margin: 5px;
+    height: 480px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.displayNum{
+    border: 2px solid black;
+    height: 80px;
+    width: 80px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.userScore{
+    border: 2px solid black;
+    height: 40px;
+    width: 80px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.level{
+    border: 2px solid black;
+    height: 40px;
+    width: 80px;
+    margin: 5px;
+    padding: 10px;
+}
+
+button{
+    width: 80px;
+    margin: 5px;
+}
+
+footer{
+
+}
