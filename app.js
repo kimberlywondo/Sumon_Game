@@ -10,12 +10,19 @@ var score = 0;
 
 //start game --> shuffle tiles; score 0
 
-//computer generates random integer from 1-12 and displays the number to the user (.displayNum)
-//function displayNum() {
-//    var max = 
-//    return Math.floor(Math.random() * 12) + 1;
-//}
 
+
+//computer generates random integer from 2-12 and displays the number to the user (.displayNum)
+var generatedNum = document.getElementById("displayNum");
+
+function displayNum() {
+    var randomNum = Math.floor(Math.random() * 12) + 2;
+    console.log("Random Num "+randomNum);
+    randomNum = String(randomNum);
+    generatedNum.innerHTML = randomNum;
+}
+
+displayNum();
 
 //creates tiles on board and assigns tile id 
 var $board = document.getElementById("board");
@@ -71,7 +78,7 @@ var numberToSum = function() {
 
 
 
-//start over: shuffle board, set beginning values to null
+//reset: shuffle board, set beginning values to null
 
 
 
