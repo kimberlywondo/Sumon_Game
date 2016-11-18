@@ -9,7 +9,9 @@ var tileIDs = [ 1, 1, 1, 1, 1, 1,
 var totalValue = 126;
 var tileCount = 36;
 var score = 0;
+var tileArray = [];
 
+console.log(tileArray);
 
 var sum = tileIDs.reduce(function(a, b) { return a + b; }, 0);
 
@@ -44,7 +46,8 @@ for (let i = 0; i < tileIDs.length; i += 1) {
     tile.innerHTML = tileIDs[i];
     console.log(tile.innerHTML);
     $board.appendChild(tile);
-    }  console.log(tile.id, tile.innerHTML, tile.value);
+    tileArray.push(tile);
+    }
 }
 createBoard();
 
@@ -55,6 +58,8 @@ createBoard();
 
 
     //if sum(selectedTiles) ==== displayNum --> (selectedTiles value * 2) --> add to userScore
+
+
         //kill selectedTiles --> Generate new displayNum
             //* make sure number generated is not > sum of ramaining active tiles or can't be created with available tiles
     
@@ -63,7 +68,7 @@ createBoard();
 
 
 
-//reset: shuffle board, set beginning values to null
+//reset: shuffle board, set beginning values to 0
 
 
 
