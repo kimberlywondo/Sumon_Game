@@ -63,6 +63,9 @@ $(function () {
 //user selects activeTiles from board --> (selectedTiles)
 // sum selectedTiles
 
+$('.tile').click(function(selectedTile){
+    console.log(this.innerHTML);
+});
 
 
     //if sum(selectedTiles) ==== displayNum --> (selectedTiles value * 2) --> add to userScore
@@ -78,6 +81,10 @@ $(function () {
 
 //reset: shuffle board, set beginning values to 0
 
+var $startOver = function() {
+  $('.board').empty();
+};
+startOver();
 
 
 
