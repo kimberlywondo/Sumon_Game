@@ -1,3 +1,13 @@
+$(document).ready(function() {
+    console.log( 'ready!');
+    $(".tile").click(addSelectedToArray);
+    displayNum();
+    createBoard();
+    shuffleBoard();
+});
+
+
+
 //Create 36 board tiles using tilesJS library
 //tiles should be numbered 1-6 (6 of each)
 var tileIDs = [ 1, 1, 1, 1, 1, 1,
@@ -8,8 +18,9 @@ var tileIDs = [ 1, 1, 1, 1, 1, 1,
                 6, 6, 6, 6, 6, 6];
 var totalValue = 126;
 var tileCount = 36;
-var score = 0;
+var userScore = 0;
 var tileArray = [];
+var currentTurnValues = [];
 
 console.log(tileArray);
 
@@ -26,15 +37,15 @@ console.log(sum);
 
 
 //computer generates random integer from 2-12 and displays the number to the user (.displayNum)
-var generatedNum = document.getElementById("displayNum");
+//var generatedNum = document.getElementById("displayNum");
+var generatedNum = function() { return Number($('#displayNum').text())};
 
 function displayNum() {
     var randomNum = Math.floor(Math.random() * 12) + 2;
     console.log("Random Num "+randomNum);
     randomNum = String(randomNum);
-    generatedNum.innerHTML = randomNum;
+    $('#displayNum').text(randomNum);
 }
-displayNum();
 
 var $board = document.getElementById("board");
 
@@ -49,28 +60,70 @@ for (let i = 0; i < tileIDs.length; i += 1) {
     tileArray.push(tile);
     }
 }
-createBoard();
 
-$(function () {
+
+
+
+function shuffleBoard() {
     var parent = $("#board");
     var divs = parent.children();
-    while (divs.length) {
-        parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    while (divs.length) {               parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
     }
-});
+}
 
 
 //user selects activeTiles from board --> (selectedTiles)
-// sum selectedTiles
+function addSelectedToArray() {
+    currentTurnValues.push(this.innerHTML);
+    console.log(currentTurnValues);
+};
 
-$('.tile').click(function(selectedTile){
-    console.log(this.innerHTML);
-});
+// sum selectedTiles
+var sumOfSelectedValueArray = function() {
+    return currentTurnValues.reduce(function(acc, x){
+    return acc + Number(x);
+    }, 0);
+}
+
+//if sumSelectedTiles === displayNum
+    // remove class .selected add class .dead && add sumOfSelectedValueArray * 2 to userScore
+//if > displayNum
+    // remove class .selected & clear currentValuesArray
+//if < displayNum
+    //do nothing
+
+function compareValues() {
+    if (sumOfSelectedValueArray() === generatedNum()) {
+        recordWin();
+        removeSelectedClass();
+        addClassDEadTile();
+    } else if (sumOfSelectedValueArray > generatedNum) {
+        removeSelectedClass();
+        currentTurnValues = [];
+    }
+}
+
+
+
+
+
+//var sum = 0;
+//$('.selected').each(function(){
+//    sum += parseFloat($(this).text());  // Or this.innerHTML, this.innerText
+//});
 
 
     //if sum(selectedTiles) ==== displayNum --> (selectedTiles value * 2) --> add to userScore
 
 
+//var displayScore = document.getElementsByClassName("userScore");
+//
+//var userScore = function(score)) {
+//    console.log(score.innerHTML);
+//    $('.userScore').innerHTML(Score.toString());
+//    $board.appendChild(userScore);
+//};
+//userScore();
         //kill selectedTiles --> Generate new displayNum
             //* make sure number generated is not > sum of ramaining active tiles or can't be created with available tiles
     
@@ -81,10 +134,10 @@ $('.tile').click(function(selectedTile){
 
 //reset: shuffle board, set beginning values to 0
 
-var $startOver = function() {
-  $('.board').empty();
-};
-startOver();
+//var $startOver = function() {
+//  $('.board').empty();
+//};
+//startOver();
 
 
 
