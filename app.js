@@ -6,10 +6,10 @@ $(document).ready(function() {
     shuffleBoard();
 });
 
-//function tileEventHandler() {
-//    addSelectedToArray();
-//    compareValues();
-//};
+function play() {
+    addSelectedToArray();
+    compareValues();
+};
 
 //Create 36 board tiles using tilesJS library
 //tiles should be numbered 1-6 (6 of each)
@@ -24,6 +24,7 @@ var tileCount = 36;
 var tileArray = [];
 var currentTurnValues = [];
 var userScore = 0;
+var reset
 
 
 var sum = tileIDs.reduce(function(a, b) { return a + b; }, 0);
@@ -132,12 +133,17 @@ function removeClassSelected() {
     $(".selected").removeClass("selected");
 }
 
+function removeClassDead() {
+    $(".dead").removeClass("dead");
+}
 
 //reset: shuffle board, set beginning values to 0
-
 function reset() {
+    removeClassDead();
+    removeClassSelected();
+    displayNum();
     shuffleBoard();
-    userScore = 0;
+    $('#userScore').text(0);
 }
 
 //var $startOver = function() {
