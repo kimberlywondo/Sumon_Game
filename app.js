@@ -3,13 +3,19 @@ $(document).ready(function() {
     displayNum();
     createBoard();
     $(".tile").click(addSelectedToArray);
+    $(".tile").click(compareValues);
     shuffleBoard();
+//    $(".tile").click(function() {
+//        play();
+//    });
 });
 
-function play() {
-    addSelectedToArray();
-    compareValues();
-};
+
+//function play() {
+//    let this = this;
+//    addSelectedToArray(x);
+//    compareValues();
+//};
 
 //Create 36 board tiles using tilesJS library
 //tiles should be numbered 1-6 (6 of each)
@@ -24,12 +30,11 @@ var tileCount = 36;
 var tileArray = [];
 var currentTurnValues = [];
 var userScore = 0;
-var reset
+var reset;
 
 
 var sum = tileIDs.reduce(function(a, b) { return a + b; }, 0);
 console.log(sum);
-
 
 
 
@@ -47,7 +52,6 @@ function displayNum() {
     randomNum = String(randomNum);
     $("#displayNum").text(randomNum);
 }
-
 
 
 
@@ -80,6 +84,7 @@ function shuffleBoard() {
 
 //user selects activeTiles from board --> (selectedTiles)
 function addSelectedToArray() {
+    console.log("selected");
     currentTurnValues.push(this.innerHTML);
     $(this).addClass("selected");
 }
@@ -87,6 +92,7 @@ function addSelectedToArray() {
 
 // sum selectedTiles
 var sumOfSelectedValueArray = function() {
+    console.log(currentTurnValues);
     return currentTurnValues.reduce(function(acc, x){
     return acc + Number(x);
     }, 0);
@@ -100,11 +106,13 @@ var sumOfSelectedValueArray = function() {
     //do nothing
 
 function compareValues() {
+    console.log("compare", sumOfSelectedValueArray.length);
     if (sumOfSelectedValueArray() === generatedNum()) {
         recordWin();
         addClassDead();
         removeClassSelected();
         displayNum();
+        currentTurnValues = [];
     } else if (sumOfSelectedValueArray() > generatedNum()) {
         removeClassSelected();
         currentTurnValues = [];
