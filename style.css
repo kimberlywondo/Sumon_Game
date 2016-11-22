@@ -5,15 +5,15 @@ body {
     text-align: center;
     font-family: 'Fredoka One', cursive;
 }
-header{
-    text-align: center;
-    color: #b84166;
-    font-size; 200%;
-}
 
-h1{
+h1 {
     text-align: center;
-    font-size; 4rem;
+    color: #231a4c;
+    font-size: 6.5rem;
+    height: 80px;
+    font-weight: bold;
+    text-shadow:  6px 6px 5px #8078a1;
+    margin-top: 40px;
 }
 
 .container{
@@ -151,5 +151,6 @@ p{
 footer{
     text-align: center;
     color: #231a4c;
-    margin: 10px;
+    margin: 15px;
+    font-size: 18px;
 }
