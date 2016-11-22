@@ -14,7 +14,7 @@ The player can choose to reset the game at any time which will reactivate all ti
 
   * Languages - HTML5, CSS3, Javascript, jQuery
   * Design - Google Fonts
-  * Project Planning & User Stories - [Trello](https://****)
+  * Project Planning & User Stories - [Trello](https://trello.com/b/bNap8o4l/sumon-game-project-1)
   * Brackets 1.8
 
 
@@ -27,7 +27,7 @@ The player can choose to reset the game at any time which will reactivate all ti
 
 ## Wireframe
 
-![Wireframe](https://*****)
+![Wireframe]()
 
 
 ## Future Development
