@@ -5,17 +5,8 @@ $(document).ready(function() {
     $(".tile").click(addSelectedToArray);
     $(".tile").click(compareValues);
     shuffleBoard();
-//    $(".tile").click(function() {
-//        play();
-//    });
 });
 
-
-//function play() {
-//    let this = this;
-//    addSelectedToArray(x);
-//    compareValues();
-//};
 
 //Create 36 board tiles using tilesJS library
 //tiles should be numbered 1-6 (6 of each)
@@ -32,15 +23,13 @@ var currentTurnValues = [];
 var userScore = 0;
 var reset;
 
-
+//will be used in future version for levelUp functionality
 var sum = tileIDs.reduce(function(a, b) { return a + b; }, 0);
 console.log(sum);
 
 
-
 //start game --> shuffle tiles; score 0
-
-
+//Add Popup options for startGame
 
 //computer generates random integer from 2-12 and displays the number to the user (displayNum)
 //JS = var generatedNum = document.getElementById("displayNum");
@@ -60,13 +49,13 @@ var $board = document.getElementById("board");
 
 function createBoard() {
 for (let i = 0; i < tileIDs.length; i += 1) {
-    var tile = document.createElement("div");
-    tile.className = "tile";
-    tile.id = i;
-    tile.innerHTML = tileIDs[i];
-    console.log(tile.innerHTML);
-    $board.appendChild(tile);
-    tileArray.push(tile);
+        var tile = document.createElement("div");
+        tile.className = "tile";
+        tile.id = i;
+        tile.innerHTML = tileIDs[i];
+        console.log(tile.innerHTML);
+        $board.appendChild(tile);
+        tileArray.push(tile);
     }
 }
 
@@ -76,7 +65,8 @@ for (let i = 0; i < tileIDs.length; i += 1) {
 function shuffleBoard() {
     var parent = $("#board");
     var divs = parent.children();
-    while (divs.length) {               parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    while (divs.length) {
+        parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
     }
 }
 
@@ -93,8 +83,8 @@ function addSelectedToArray() {
 // sum selectedTiles
 var sumOfSelectedValueArray = function() {
     console.log(currentTurnValues);
-    return currentTurnValues.reduce(function(acc, x){
-    return acc + Number(x);
+    return currentTurnValues.reduce(function(acc, x) {
+        return acc + Number(x);
     }, 0);
 }
 
