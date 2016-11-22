@@ -1,21 +1,28 @@
+body {
+    background-image: url(air_baloons_bkr.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 header{
-    
+    text-align: center;
 }
 
 h1{
-
+    text-align: center;
 }
 
 p{
-
+    text-align: center;
 }
 
 .container{
-    width: 800px;
+    width: 645px;
     background: black;
     margin: 5px;
     padding: 15px;
     display: flex;
+    text-align: center;
+
 }
 
 .board{
@@ -26,6 +33,7 @@ p{
     background: gray;
     border-radius: 5px;
     padding: 5px;
+    margin: 2px;
 }
 
 .tile {
@@ -40,11 +48,23 @@ p{
     font-size: 220%;
     vertical-align: middle;
     line-height: 60px;
+    border-radius: 2px;
 }
 
 .tile:hover{
         background: yellow; 
     }
+
+.selected{
+    background: pink;
+}
+
+.dead {
+    opacity: 0;
+    &:hover {
+        cursor: default;
+  }
+}
 
 aside {
     background: gray;
@@ -62,6 +82,9 @@ aside {
     width: 80px;
     margin: 5px;
     padding: 10px;
+    vertical-align: middle;
+    line-height: 80px;
+    font-size: 275%;
 }
 
 .userScore{
@@ -70,6 +93,9 @@ aside {
     width: 80px;
     margin: 5px;
     padding: 10px;
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 125%;
 }
 
 .level{
@@ -78,6 +104,9 @@ aside {
     width: 80px;
     margin: 5px;
     padding: 10px;
+    vertical-align: middle;
+    line-height: 40px;
+    font-size: 125%;
 }
 
 button{
@@ -86,5 +115,5 @@ button{
 }
 
 footer{
-
+    text-align: center;
 }
