@@ -1,4 +1,4 @@
-# SUMON Game - Project 1
+# SUMON Game 1.1 - Project 1
 ## Overview
 
 For project #1, I created a simple Sumon game.
@@ -32,7 +32,11 @@ The player can choose to reset the game at any time which will reactivate all ti
 
 ## Future Development
 
-
   * Add Levels
   * Add next level alerts
   * Add timer
+
+
+## SUMON 1.3 fixes:
+  
+  * Fix Reset bug - clear array on reset
