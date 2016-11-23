@@ -141,7 +141,7 @@ function reset() {
     removeClassSelected();
     displayNum();
     shuffleBoard();
-    $('#userScore').text(0);
+    userScore = 0;
 }
 
 //var $startOver = function() {
