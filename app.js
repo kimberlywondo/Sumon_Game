@@ -24,8 +24,10 @@ var userScore = 0;
 var reset;
 
 //will be used in future version for levelUp functionality
+//?? possible next level with 8x8 board??
 var sum = tileIDs.reduce(function(a, b) { return a + b; }, 0);
 console.log(sum);
+
 
 
 //start game --> shuffle tiles; score 0
@@ -82,7 +84,6 @@ function addSelectedToArray() {
 
 // sum selectedTiles
 var sumOfSelectedValueArray = function() {
-    console.log(currentTurnValues);
     return currentTurnValues.reduce(function(acc, x) {
         return acc + Number(x);
     }, 0);
@@ -96,7 +97,7 @@ var sumOfSelectedValueArray = function() {
     //do nothing
 
 function compareValues() {
-    console.log("compare", sumOfSelectedValueArray.length);
+    console.log("compare");
     if (sumOfSelectedValueArray() === generatedNum()) {
         recordWin();
         addClassDead();
@@ -120,6 +121,8 @@ function recordWin() {
     console.log("win recorded");
 }
 
+//?? SCORING: # of tiles used (addSelectedToArray.length) is
+
 
 function addClassDead() {
     $(".selected").addClass("dead");
@@ -137,23 +140,19 @@ function removeClassDead() {
 
 //reset: shuffle board, set beginning values to 0
 function reset() {
+    userScore = 0;
+    $('#userScore').text(userScore);
     removeClassDead();
     removeClassSelected();
     displayNum();
     shuffleBoard();
-    userScore = 0;
 }
 
-//var $startOver = function() {
-//  $('.board').empty();
-//};
-//startOver();
 
 
 
 
 
-//?? possible next level with 8x8 board??
 
 
 
