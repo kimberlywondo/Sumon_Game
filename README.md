@@ -27,7 +27,7 @@ The player can choose to reset the game at any time which will reactivate all ti
 
 ## Wireframe
 
-![Wireframe]()
+![Wireframe](sumon_wireframe.jpg)
 
 
 ## Future Development
